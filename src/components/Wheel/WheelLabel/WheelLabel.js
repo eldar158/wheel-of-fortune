@@ -1,6 +1,6 @@
-import './Wheel.css';
+import './WheelLabel.css';
 
-function Label(props) {
+function WheelLabel(props) {
   const {text, spaceCount, slot, r, onClick} = {...props}
 
   const spaces = '\u00A0'.repeat(spaceCount)
@@ -8,7 +8,7 @@ function Label(props) {
 
   return (
     <p 
-      className="Label noselect"
+      className="WheelLabel noselect"
       style = {style}
       onClick={onClick}
     >
@@ -17,4 +17,4 @@ function Label(props) {
   );
 }
 
-export default Label;
+export default WheelLabel;

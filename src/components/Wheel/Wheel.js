@@ -2,9 +2,9 @@ import React from 'react';
 
 import './Wheel.css';
 
-import Label from './Label';
+import WheelLabel from './WheelLabel/WheelLabel';
 
-import spin from '../utils/spin'
+import spin from './spin'
 
 //todo
 //1.  stop propegation?
@@ -32,14 +32,14 @@ class Wheel extends React.Component {
     return constW + Math.random() * randW
   }
 
-  label(text, spaceCount, slot, r, onClick) {
-    return <Label
+  wheelLabel(text, spaceCount, slot, r, onClick) {
+    return <WheelLabel
       text={text}
       spaceCount={spaceCount}
       slot={slot}
       r={r}
       onClick={onClick}
-    ></Label>
+    ></WheelLabel>
   }
 
   render() {
@@ -47,9 +47,9 @@ class Wheel extends React.Component {
 
     const spinnerStyle = {transform: `rotate(${this.state.r}deg)`}
 
-    const labels = []
+    const wheelLabels = []
     for (let i = 0; i < 12; i++) {
-      labels.push(this.label(`I'm label ${i}`, 20, i, this.state.r, onClick))
+      wheelLabels.push(this.wheelLabel(`I'm label ${i}`, 20, i, this.state.r, onClick))
     }
 
     return (
@@ -71,7 +71,7 @@ class Wheel extends React.Component {
           onClick={onClick}
         ></img>
 
-        {labels}
+        {wheelLabels}
       </div>
     );
   }

@@ -19,35 +19,16 @@ class Wheel extends React.Component {
   }
 
   onWheelClick() {
-    this.setState({w: this.getW()}, () => {
-      spin(this.state, this.setState.bind(this))
+    spin(this.state, this.setState.bind(this)).then((resolved) => {
+      //todo should i use it? or other method? it works
+      // console.log('finished')
     })
   }
-  getW() {
-    const constW = 10
-    const randW = 20
-    return constW + Math.random() * randW
-  }
 
-
-  renderWheelLabels(onClick) {
-    const selectedLabelKey = getSelectedLabelKey(this.props.labels.length, this.state.r)
-    return this.props.labels.map((label, i) => {
-      const labelRotation = this.state.r - 75 + (i * 30) //starting from -75 on the wheel
-      const selected = selectedLabelKey === i
-      return <WheelLabel
-        key={i}
-        text={label}
-        r={labelRotation}
-        onClick={onClick}
-        selected={selected}
-      ></WheelLabel>
-    })
-  }
 
   render() {
     const onClick = this.onWheelClick
-    const wheelLabels = this.renderWheelLabels(onClick)
+    const wheelLabels = renderWheelLabels(this.state.r, this.props.labels, onClick)
     const spinnerStyle = {transform: `rotate(${this.state.r}deg)`}
 
     return (
@@ -74,7 +55,20 @@ class Wheel extends React.Component {
   }
 }
 
-
+function renderWheelLabels(r, labels, onClick) {
+  const selectedLabelKey = getSelectedLabelKey(12, r) //missing labels are still counted on the wheel
+  return labels.map((label, i) => {
+    const labelRotation = r - 75 + (i * 30) //starting from -75 on the wheel
+    const selected = selectedLabelKey === i
+    return <WheelLabel
+      key={i}
+      text={label}
+      r={labelRotation}
+      onClick={onClick}
+      selected={selected}
+    ></WheelLabel>
+  })
+}
 function getSelectedLabelKey(labelCount, rotation) {
   const maxKey = labelCount - 1
   const progression = Math.floor((rotation % 360) / 30)

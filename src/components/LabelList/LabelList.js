@@ -4,9 +4,27 @@ import LabelBlock from './LabelBlock/LabelBlock';
 
 
 function LabelList(props) {
-  const {labels, setLabel} = {...props}
+  const {labels, setLabels} = {...props}
 
-  function createLabelBlocks(labels, setLabel) {
+  function setLabel (i, newLabel) {
+    const newLabels = [...labels]
+    newLabels[i] = newLabel
+    setLabels(newLabels)
+  }
+  function addLabel (newLabel) {
+    if ( labels.length >= 12 ) return
+    const newLabels = [...labels]
+    newLabels.push(newLabel)
+    setLabels(newLabels)
+  }
+  function removeLabel (i) {
+    if ( i >= labels.length ) return
+    const newLabels = [...labels]
+    newLabels.splice(i, 1)
+    setLabels(newLabels)
+  }
+
+  function renderLabelBlocks(labels, setLabel) {
     return labels.map((label, i) => {
       return (
         <LabelBlock
@@ -18,15 +36,14 @@ function LabelList(props) {
       )
     })
   }
-
-
-  const labelListBlocks = createLabelBlocks(labels, setLabel)
-  const addButton = 5 //todo
-  const deleteButton = 5 //todo
-
+  
+  
   return (
     <div className="LabelList">
-      {labelListBlocks}
+      <button className='addButton' onClick={(e) => addLabel('')}>+</button>
+      <button className='removeButton' onClick={(e) => removeLabel(labels.length - 1)}>-</button>
+      
+      {renderLabelBlocks(labels, setLabel)}
     </div>
   );
 }

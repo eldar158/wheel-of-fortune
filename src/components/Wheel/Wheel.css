@@ -26,6 +26,7 @@
   width: var(--scale);
   top: calc(var(--scale) * 0.0705);
   left: 0;
+  transform-origin: 50% 49.94%; /* *to fix wheel image being a bit uncenterred */
 }
 .Wheel .shaft {
   z-index: 0;

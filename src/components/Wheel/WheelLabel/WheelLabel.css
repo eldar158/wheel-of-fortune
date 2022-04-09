@@ -1,9 +1,12 @@
 .WheelLabel {
   cursor: pointer;
+  white-space: pre-line;
   position: absolute;
   z-index: 2;
   font-weight: bold;
   font-size: 1.2vw;
+  width: calc((var(--scale) * 0.4));
+  text-align: right;
   top: calc((var(--scale) * 0.5));
   left: calc((var(--scale) * 0.5));
   transform-origin: 0 50%;

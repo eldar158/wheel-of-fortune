@@ -30,7 +30,7 @@ class Wheel extends React.Component {
   }
 
 
-  createWheelLabels(onClick) {
+  renderWheelLabels(onClick) {
     return this.props.labels.map((label, i) => {
       return (
         <WheelLabel
@@ -46,7 +46,7 @@ class Wheel extends React.Component {
 
   render() {
     const onClick = this.onWheelClick
-    const wheelLabels = this.createWheelLabels(onClick)
+    const wheelLabels = this.renderWheelLabels(onClick)
     const spinnerStyle = {transform: `rotate(${this.state.r}deg)`}
 
     return (

@@ -3,9 +3,11 @@ import './LabelBlock.css';
 
 function LabelBlock(props) {
   const {labelKey, label, setLabel} = {...props}
+  const maxLength = 9
 
   function onChangeLabel (e) {
     const newLabel = e.target.value
+    if ( newLabel.length > maxLength ) return
     setLabel(labelKey, newLabel)
   }
 

@@ -1,4 +1,4 @@
-export default function spin (state, setState) {
+function spinWheel (state, setState) {
   const r = state.r
   const w =  getInitialW()
   const a = -0.1
@@ -33,3 +33,13 @@ function getInitialW() {
   const randW = 20
   return constW + Math.random() * randW
 }
+
+
+function getSelectedLabelKey(labelCount, rotation) {
+  const maxKey = labelCount - 1
+  const progression = Math.floor((rotation % 360) / 30)
+  return (maxKey - progression) % labelCount
+}
+
+
+export {spinWheel, getSelectedLabelKey}

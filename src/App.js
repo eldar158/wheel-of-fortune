@@ -21,10 +21,14 @@ class App extends React.Component {
   }
 
   setLabels (newLabels, callback) {
-    this.setState({labels: newLabels}, () => { callback() })
+    this.setState({labels: newLabels}, () => {
+      if (callback && typeof callback === 'function') callback()
+    })
   }
   setSpin (newSpin, callback) {
-    this.setState({spin: newSpin}, () => { callback() })
+    this.setState({spin: newSpin}, () => {
+      if (callback && typeof callback === 'function') callback()
+    })
   }
 
   render() {

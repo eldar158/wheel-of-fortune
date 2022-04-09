@@ -1,13 +1,12 @@
 .WheelLabel {
   cursor: pointer;
+  
+  text-align: right;
 
-  display: table;
-  overflow: hidden;
-
-  position: absolute;
   z-index: 2;
- 
+  position: absolute;
   height: 4.2vw;
+  line-height: 4.2vw;
   width: calc((var(--scale) * 0.4));
   top: calc((var(--scale) * 0.5));
   left: calc((var(--scale) * 0.5));
@@ -15,47 +14,24 @@
   transform-origin: 0 50%;
 }
 
-.WheelLabel p {
-  display: table-cell;
+.WheelLabel span {
+  width: 50%;
+
+  display: inline-block;
   vertical-align: middle;
-  
-  white-space: pre-line;
-  text-align: right;
-  font-weight: bold;
+  line-height: normal;
+
+  overflow-wrap: break-word;
+
   font-size: 1.2vw;
+  font-weight: bold;
+  text-align: right;
 }
 
-.selected p{
+.WheelLabel .selected {
   text-shadow: 
     -0.15vw 0 white, 
     0 0.15vw white, 
     0.15vw 0 white, 
     0 -0.15vw white;
 }
-
-/* * more heavy to calc shadow, can be used if needed */
-/* text-shadow: 0.05vw 0.05vw 0 #fff,
--0.05vw 0.05vw 0 #fff,
-0.05vw -0.05vw 0 #fff,
--0.05vw -0.05vw 0 #fff,
-0px 0.05vw 0 #fff,
-0px -0.05vw 0 #fff,
--0.05vw 0px 0 #fff,
-0.05vw 0px 0 #fff,
-0.1vw 0.1vw 0 #fff,
--0.1vw 0.1vw 0 #fff,
-0.1vw -0.1vw 0 #fff,
--0.1vw -0.1vw 0 #fff,
-0px 0.1vw 0 #fff,
-0px -0.1vw 0 #fff,
--0.1vw 0px 0 #fff,
-0.1vw 0px 0 #fff,
-0.05vw 0.1vw 0 #fff,
--0.05vw 0.1vw 0 #fff,
-0.05vw -0.1vw 0 #fff,
--0.05vw -0.1vw 0 #fff,
-0.1vw 0.05vw 0 #fff,
--0.1vw 0.05vw 0 #fff,
-0.1vw -0.05vw 0 #fff,
--0.1vw -0.05vw 0 #fff;
-} */

@@ -3,7 +3,7 @@ import './LabelBlock.css';
 
 function LabelBlock(props) {
   const {labelKey, label, setLabel} = {...props}
-  const maxLength = 18
+  const maxLength = 14 // for not surpassing 2 lines
 
   function onChangeLabel (e) {
     const newLabel = e.target.value

@@ -20,19 +20,19 @@ function Wheel (props) {
   const spinnerStyle = {transform: `rotate(${spin.r}deg)`}
 
   return (
-    <div className='Wheel'>
+    <div className='Wheel noselect'>
       <img className='axis'
         src='/assets/axis.png'
         alt='axis'
         onClick={onWheelClick}
       ></img>
-      <img className='spinner'
+      <img className='spinner noselect'
         src='/assets/spinner.png'
         alt='spinner'
         style = {spinnerStyle}
         onClick={onWheelClick}
       ></img>
-      <img className='shaft'
+      <img className='shaft noselect'
         src='/assets/shaft.png'
         alt='shaft'
       ></img>

@@ -6,10 +6,6 @@ import WheelLabel from './WheelLabel/WheelLabel';
 
 import spin from './spin'
 
-//todo
-//1.  stop propegation?
-//2.  if clicking while animation, reset speed, but continue anim instead of now that it adds a anim
-
 
 class Wheel extends React.Component {
   constructor(props) {
@@ -19,6 +15,7 @@ class Wheel extends React.Component {
       w: 0,
       a: -0.1,
     }
+    this.onWheelClick = this.onWheelClick.bind(this)
   }
 
   onWheelClick() {
@@ -32,25 +29,25 @@ class Wheel extends React.Component {
     return constW + Math.random() * randW
   }
 
-  wheelLabel(text, spaceCount, slot, r, onClick) {
-    return <WheelLabel
-      text={text}
-      spaceCount={spaceCount}
-      slot={slot}
-      r={r}
-      onClick={onClick}
-    ></WheelLabel>
+
+  createWheelLabels(onClick) {
+    return this.props.labels.map((label, i) => {
+      return (
+        <WheelLabel
+          key={i}
+          text={label}
+          slot={i}
+          r={this.state.r}
+          onClick={onClick}
+        ></WheelLabel>
+      )
+    })
   }
 
   render() {
-    const onClick = this.onWheelClick.bind(this)
-
+    const onClick = this.onWheelClick
+    const wheelLabels = this.createWheelLabels(onClick)
     const spinnerStyle = {transform: `rotate(${this.state.r}deg)`}
-
-    const wheelLabels = []
-    for (let i = 0; i < 12; i++) {
-      wheelLabels.push(this.wheelLabel(`I'm label ${i}`, 20, i, this.state.r, onClick))
-    }
 
     return (
       <div className='Wheel'>
@@ -68,7 +65,6 @@ class Wheel extends React.Component {
         <img className='shaft'
           src='/assets/shaft.png'
           alt='shaft'
-          onClick={onClick}
         ></img>
 
         {wheelLabels}

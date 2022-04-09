@@ -14,12 +14,14 @@
   position: absolute;
 }
 .Wheel .axis {
+  cursor: pointer;
   z-index: 3;
   width: calc(var(--scale) * 0.34);
   top: 0;
   left: calc(var(--scale) * 0.33);;
 }
 .Wheel .spinner {
+  cursor: pointer;
   z-index: 1;
   width: var(--scale);
   top: calc(var(--scale) * 0.0705);

@@ -38,15 +38,15 @@ function LabelList(props) {
   
   return (
     <div className="LabelList">
-      <img className='addButton noselect'
-          src='/assets/addButton.png'
-          alt='addButton'
-          onClick={(e) => addLabel('')}
-      ></img>
       <img className='removeButton noselect'
-          src='/assets/removeButton.png'
+          src='/assets/images/removeButton.png'
           alt='removeButton'
           onClick={(e) => removeLabel(labels.length - 1)}
+      ></img>
+      <img className='addButton noselect'
+          src='/assets/images/addButton.png'
+          alt='addButton'
+          onClick={(e) => addLabel('')}
       ></img>
       
       {renderLabelBlocks(labels, setLabel)}

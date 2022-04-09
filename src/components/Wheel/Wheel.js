@@ -22,18 +22,18 @@ function Wheel (props) {
   return (
     <div className='Wheel noselect'>
       <img className='axis'
-        src='/assets/axis.png'
+        src='/assets/images/axis.png'
         alt='axis'
         onClick={onWheelClick}
       ></img>
       <img className='spinner noselect'
-        src='/assets/spinner.png'
+        src='/assets/images/spinner.png'
         alt='spinner'
         style = {spinnerStyle}
         onClick={onWheelClick}
       ></img>
       <img className='shaft noselect'
-        src='/assets/shaft.png'
+        src='/assets/images/shaft.png'
         alt='shaft'
       ></img>
 

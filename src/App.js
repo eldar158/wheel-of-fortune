@@ -38,10 +38,14 @@ class App extends React.Component {
     const monitorText = labels[getSelectedLabelKey(12, spin.r)]
 
     return (
-      <div className="App">
+      //whole app in rtl
+      <div className="App" dir='rtl'>
         <Monitor text={monitorText}></Monitor>
         <Wheel spin={spin} setSpin={setSpin} labels={labels}></Wheel>
         <LabelList labels={labels} setLabels={setLabels}></LabelList>
+        
+        {/* credits for wheel art */}
+        <a href='https://www.freepik.com/vectors/clip-art'>Clip art vector created by brgfx - www.freepik.com</a>
       </div>
     );
   }

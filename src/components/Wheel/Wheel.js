@@ -32,15 +32,13 @@ class Wheel extends React.Component {
 
   renderWheelLabels(onClick) {
     return this.props.labels.map((label, i) => {
-      return (
-        <WheelLabel
-          key={i}
-          text={label}
-          slot={i}
-          r={this.state.r}
-          onClick={onClick}
-        ></WheelLabel>
-      )
+      return <WheelLabel
+        key={i}
+        text={label}
+        slot={i}
+        r={this.state.r}
+        onClick={onClick}
+      ></WheelLabel>
     })
   }
 

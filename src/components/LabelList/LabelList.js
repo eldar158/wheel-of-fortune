@@ -26,22 +26,28 @@ function LabelList(props) {
 
   function renderLabelBlocks(labels, setLabel) {
     return labels.map((label, i) => {
-      return (
-        <LabelBlock
-          key={i}
-          labelKey={i}
-          label={label}
-          setLabel={setLabel}
-        ></LabelBlock>
-      )
+      return <LabelBlock
+        key={i}
+        labelKey={i}
+        label={label}
+        setLabel={setLabel}
+      ></LabelBlock>
     })
   }
   
   
   return (
     <div className="LabelList">
-      <button className='addButton' onClick={(e) => addLabel('')}>+</button>
-      <button className='removeButton' onClick={(e) => removeLabel(labels.length - 1)}>-</button>
+      <img className='addButton noselect'
+          src='/assets/addButton.png'
+          alt='addButton'
+          onClick={(e) => addLabel('')}
+      ></img>
+      <img className='removeButton noselect'
+          src='/assets/removeButton.png'
+          alt='removeButton'
+          onClick={(e) => removeLabel(labels.length - 1)}
+      ></img>
       
       {renderLabelBlocks(labels, setLabel)}
     </div>

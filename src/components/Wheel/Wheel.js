@@ -13,7 +13,6 @@ class Wheel extends React.Component {
     this.state = {
       r: -5,
       w: 0,
-      a: -0.1,
     }
     this.onWheelClick = this.onWheelClick.bind(this)
   }

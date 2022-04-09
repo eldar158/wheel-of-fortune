@@ -11,7 +11,7 @@ class Wheel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      r: 0,
+      r: -5,
       w: 0,
       a: -0.1,
     }
@@ -31,13 +31,16 @@ class Wheel extends React.Component {
 
 
   renderWheelLabels(onClick) {
+    const selectedLabelKey = getSelectedLabelKey(this.props.labels.length, this.state.r)
     return this.props.labels.map((label, i) => {
+      const labelRotation = this.state.r - 75 + (i * 30) //starting from -75 on the wheel
+      const selected = selectedLabelKey === i
       return <WheelLabel
         key={i}
         text={label}
-        slot={i}
-        r={this.state.r}
+        r={labelRotation}
         onClick={onClick}
+        selected={selected}
       ></WheelLabel>
     })
   }
@@ -71,6 +74,12 @@ class Wheel extends React.Component {
   }
 }
 
+
+function getSelectedLabelKey(labelCount, rotation) {
+  const maxKey = labelCount - 1
+  const progression = Math.floor((rotation % 360) / 30)
+  return (maxKey - progression) % labelCount
+}
 
 
 export default Wheel;

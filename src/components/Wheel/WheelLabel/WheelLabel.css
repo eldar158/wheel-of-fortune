@@ -24,3 +24,38 @@
   font-weight: bold;
   font-size: 1.2vw;
 }
+
+.selected p{
+  text-shadow: 
+    -0.15vw 0 white, 
+    0 0.15vw white, 
+    0.15vw 0 white, 
+    0 -0.15vw white;
+}
+
+/* * more heavy to calc shadow, can be used if needed */
+/* text-shadow: 0.05vw 0.05vw 0 #fff,
+-0.05vw 0.05vw 0 #fff,
+0.05vw -0.05vw 0 #fff,
+-0.05vw -0.05vw 0 #fff,
+0px 0.05vw 0 #fff,
+0px -0.05vw 0 #fff,
+-0.05vw 0px 0 #fff,
+0.05vw 0px 0 #fff,
+0.1vw 0.1vw 0 #fff,
+-0.1vw 0.1vw 0 #fff,
+0.1vw -0.1vw 0 #fff,
+-0.1vw -0.1vw 0 #fff,
+0px 0.1vw 0 #fff,
+0px -0.1vw 0 #fff,
+-0.1vw 0px 0 #fff,
+0.1vw 0px 0 #fff,
+0.05vw 0.1vw 0 #fff,
+-0.05vw 0.1vw 0 #fff,
+0.05vw -0.1vw 0 #fff,
+-0.05vw -0.1vw 0 #fff,
+0.1vw 0.05vw 0 #fff,
+-0.1vw 0.05vw 0 #fff,
+0.1vw -0.05vw 0 #fff,
+-0.1vw -0.05vw 0 #fff;
+} */

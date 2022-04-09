@@ -1,7 +1,7 @@
 import './WheelLabel.css';
 
 function WheelLabel(props) {
-  const {text, slot, r, onClick} = {...props}
+  const {text, r, onClick, selected} = {...props}
   const lineLength = 9
   
   var formattedText = text
@@ -9,11 +9,11 @@ function WheelLabel(props) {
     formattedText = text.substring(0,9) + '\n' + text.substring(9, text.length)
   }
 
-  const style = {transform: `rotate(${r + (slot * 30) - 15}deg)`}
-
+  const style = {transform: `rotate(${r}deg)`}
+  const className = selected ? "WheelLabel noselect selected" : "WheelLabel noselect"
   return (
     <div
-      className="WheelLabel noselect"
+      className={className}
       style = {style}
       onClick={onClick}
     >
@@ -21,5 +21,7 @@ function WheelLabel(props) {
     </div>
   );
 }
+
+
 
 export default WheelLabel;

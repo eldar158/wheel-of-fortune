@@ -36,11 +36,11 @@ class App extends React.Component {
     const {setSpin, setLabels} = {...this}
 
     const monitorText = labels[getSelectedLabelKey(12, spin.r)]
-
+    
     return (
       //whole app in rtl
       <div className="App" dir='rtl'>
-        <Monitor text={monitorText}></Monitor>
+        <Monitor text={monitorText} selected={spin.w <= 0}></Monitor>
         <Wheel spin={spin} setSpin={setSpin} labels={labels}></Wheel>
         <LabelList labels={labels} setLabels={setLabels}></LabelList>
         

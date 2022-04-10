@@ -9,11 +9,13 @@
   background-color: #3f8ed3;
 }
 
-.Monitor .display{
+.Monitor .background{
   text-align: center;
   background-color: white;
   border: solid 0.1vw black;
+}
 
+.Monitor .background .display{
   width: 20vw;
   height: 10vw;
   padding: 5vw 0;
@@ -23,4 +25,26 @@
 
   font-family: 'rubik';
   overflow-wrap: break-word;
+}
+
+.Monitor .background .selected{
+  background-image: url('../../../public/assets/gifs/stars.gif');
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  -webkit-animation: fade 1.5s ; /* Chrome, Safari, Opera */
+  animation: fade 1.5s ;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes fade {
+  from {opacity: 0.2;}
+  to {opacity: 1;}
+}
+/* Standard syntax */
+@keyframes fade {
+  from {opacity: 0.2;}
+  to {opacity: 1;}
 }

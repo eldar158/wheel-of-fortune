@@ -7,20 +7,18 @@ function LabelList(props) {
   const {labels, setLabels} = {...props}
 
   function setLabel (i, newLabel) {
-    const newLabels = [...labels]
-    newLabels[i] = newLabel
-    setLabels(newLabels)
+    changeLabels(true , (newLabels) => newLabels[i] = newLabel)
   }
   function addLabel (newLabel) {
-    if ( labels.length >= 12 ) return
-    const newLabels = [...labels]
-    newLabels.push(newLabel)
-    setLabels(newLabels)
+    changeLabels(labels.length < 12 , (newLabels) => newLabels.push(newLabel))
   }
   function removeLabel (i) {
-    if ( i >= labels.length ) return
+    changeLabels(i < labels.length , (newLabels) => newLabels.splice(i, 1))
+  }
+  function changeLabels (condition, changeFunction) {
+    if ( !condition ) return
     const newLabels = [...labels]
-    newLabels.splice(i, 1)
+    changeFunction(newLabels)
     setLabels(newLabels)
   }
 

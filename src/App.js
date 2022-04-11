@@ -13,7 +13,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       spin: {r: -5, w: 0},
-      labels: Array.apply(null, Array(12)).map((item, i) => `כותרת ${i + 1}`)
+      labels: ["סושי", "המבורגר", "פיצה", "נאצ'וס", "נודלס", "סביח", "סלטים", "פסטה", "סנדוויצ'ים", "קארי", "אינג'רה", "שווארמה"],
     }
 
     this.setLabels = this.setLabels.bind(this)
@@ -35,13 +35,13 @@ class App extends React.Component {
     const {spin, labels} = {...this.state}
     const {setSpin, setLabels} = {...this}
 
-    const monitorText = labels[getSelectedLabelKey(12, spin.r)]
+    const selectedLabelKey = getSelectedLabelKey(spin.r)
+    const monitorText = labels[selectedLabelKey]
     
     return (
-      //whole app in rtl
       <div className="App" dir='rtl'>
-        <Monitor text={monitorText} selected={spin.w <= 0}></Monitor>
-        <Wheel spin={spin} setSpin={setSpin} labels={labels}></Wheel>
+        <Monitor text={monitorText} wheelStopped={spin.w <= 0}></Monitor>
+        <Wheel spin={spin} setSpin={setSpin} labels={labels} selectedLabelKey={selectedLabelKey}></Wheel>
         <LabelList labels={labels} setLabels={setLabels}></LabelList>
         
         {/* credits for wheel art */}

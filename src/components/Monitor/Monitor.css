@@ -27,7 +27,7 @@
   overflow-wrap: break-word;
 }
 
-.Monitor .background .selected{
+.Monitor .background .highLighted{
   background-image: url('../../../public/assets/gifs/stars.gif');
 
   -webkit-background-size: cover;

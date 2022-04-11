@@ -2,9 +2,9 @@ import './Monitor.css';
 
 
 function Monitor(props) {
-  const {text, selected} = {...props}
+  const {text, wheelStopped} = {...props}
 
-  const displayClass = selected ? 'display selected' : 'display'
+  const displayClass = wheelStopped ? 'display highLighted' : 'display'
   
   return (
     <div className="Monitor">

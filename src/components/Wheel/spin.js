@@ -1,6 +1,6 @@
 function spinWheel (state, setState) {
   const r = state.r
-  const w =  getInitialW()
+  const w =  getRandomInital()
   const a = -0.1
   const newState = {r: r, w: w}
 
@@ -28,14 +28,15 @@ function spinAnimation (state, setState, a, resolve) {
   })
 }
 
-function getInitialW() {
+function getRandomInital() {
   const constW = 10
   const randW = 20
   return constW + Math.random() * randW
 }
 
 
-function getSelectedLabelKey(labelCount, rotation) {
+function getSelectedLabelKey(rotation) {
+  const labelCount = 12 // the wheel contains total of 12 labels
   const maxKey = labelCount - 1
   const progression = Math.floor((rotation % 360) / 30)
   return (maxKey - progression) % labelCount

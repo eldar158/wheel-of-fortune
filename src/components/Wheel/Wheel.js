@@ -4,19 +4,31 @@ import './Wheel.css';
 
 import WheelLabel from './WheelLabel/WheelLabel';
 
-import {spinWheel, getSelectedLabelKey} from './spin'
+import { spinWheel } from './spin'
 
 
 function Wheel (props) {
-  const {spin, setSpin, labels} = {...props}
+  const {spin, setSpin, labels, selectedLabelKey} = {...props}
 
   function onWheelClick() {
-    spinWheel(spin, setSpin).then((resolved) => {
-      //todo should i use it? or other method? it works
+    spinWheel(spin, setSpin)
+  }
+
+  function renderWheelLabels() {
+    return labels.map((label, i) => {
+      const labelRotation = spin.r - 75 + (i * 30) //starting from -75 deg on the wheel
+      const selected = selectedLabelKey === i
+      return <WheelLabel
+        key={i}
+        text={label}
+        r={labelRotation}
+        onClick={onWheelClick}
+        selected={selected}
+      ></WheelLabel>
     })
   }
   
-  const wheelLabels = renderWheelLabels(spin.r, labels, onWheelClick)
+  const wheelLabels = renderWheelLabels()
   const spinnerStyle = {transform: `rotate(${spin.r}deg)`}
 
   return (
@@ -26,13 +38,13 @@ function Wheel (props) {
         alt='axis'
         onClick={onWheelClick}
       ></img>
-      <img className='spinner noselect'
+      <img className='spinner'
         src='/assets/images/spinner.png'
         alt='spinner'
         style = {spinnerStyle}
         onClick={onWheelClick}
       ></img>
-      <img className='shaft noselect'
+      <img className='shaft'
         src='/assets/images/shaft.png'
         alt='shaft'
       ></img>
@@ -40,21 +52,6 @@ function Wheel (props) {
       {wheelLabels}
     </div>
   );
-}
-
-function renderWheelLabels(r, labels, onClick) {
-  const selectedLabelKey = getSelectedLabelKey(12, r) //missing labels are still counted on the wheel
-  return labels.map((label, i) => {
-    const labelRotation = r - 75 + (i * 30) //starting from -75 deg on the wheel
-    const selected = selectedLabelKey === i
-    return <WheelLabel
-      key={i}
-      text={label}
-      r={labelRotation}
-      onClick={onClick}
-      selected={selected}
-    ></WheelLabel>
-  })
 }
 
 
